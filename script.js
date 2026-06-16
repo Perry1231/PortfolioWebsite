@@ -29,3 +29,5 @@ if (heroRight && hero) {
   }, { threshold: 0.3 });
   observer.observe(hero);
 }
+
+
