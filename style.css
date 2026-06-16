@@ -117,221 +117,18 @@ body {
   pointer-events: none;
 }
 
-.task-scene {
-  position: relative;
-  width: 340px;
-  height: 300px;
+.hero-image {
+  max-width: 100%;
+  height: auto;
+  max-height: 70vh;
+  border-radius: 12px;
+  box-shadow: 0 4px 30px var(--color-card-shadow);
+  object-fit: contain;
   opacity: 0;
   animation: fadeUp 0.8s ease 0.7s forwards;
+  background: #f5f0e8;
+  padding: 8px;
 }
-
-.ts-board {
-  position: absolute;
-  right: 0;
-  top: 10px;
-  width: 200px;
-  height: 240px;
-  background: linear-gradient(180deg, var(--color-nav-bg), var(--color-bg-end));
-  border: 1px solid var(--color-nav-border);
-  border-radius: 6px;
-  padding: 8px 6px;
-  display: flex;
-  gap: 4px;
-  box-shadow: 0 4px 20px var(--color-card-shadow), inset 0 1px 0 rgba(255,255,255,0.15);
-  backdrop-filter: blur(8px);
-}
-
-.ts-column {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-}
-
-.ts-col-h {
-  font-size: 0.5rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.04em;
-  color: var(--color-nav-link);
-  text-align: center;
-  padding: 2px 0;
-  border-bottom: 1px solid var(--color-nav-border);
-  margin-bottom: 4px;
-}
-
-.ts-card {
-  font-size: 0.5rem;
-  font-weight: 600;
-  padding: 5px 4px;
-  border-radius: 3px;
-  text-align: center;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.08);
-}
-
-.ts-card.yellow { background: #FFD93D; color: #333; }
-.ts-card.blue { background: #6EC6FF; color: #1a1a2e; }
-.ts-card.pink { background: #FF8A9E; color: #2a1a2e; }
-.ts-card.green { background: #6BCB77; color: #1a2a1e; }
-
-.ts-stickman {
-  position: absolute;
-  bottom: 20px;
-  left: 30px;
-  width: 50px;
-  height: 130px;
-}
-
-.ts-s-head {
-  position: absolute;
-  top: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 20px;
-  height: 20px;
-  border-radius: 50%;
-  border: 2px solid var(--color-text);
-  background: var(--color-bg-start);
-  z-index: 2;
-}
-
-.ts-s-body {
-  position: absolute;
-  top: 18px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 2.5px;
-  height: 48px;
-  background: var(--color-text);
-  border-radius: 1px;
-}
-
-.ts-s-arm-l {
-  position: absolute;
-  top: 24px;
-  left: 2px;
-  width: 28px;
-  height: 2.5px;
-  background: var(--color-text);
-  border-radius: 1px;
-  transform-origin: right center;
-  transform: rotate(25deg);
-  animation: armSwingL 3s ease-in-out infinite;
-}
-
-.ts-s-arm-r {
-  position: absolute;
-  top: 22px;
-  right: -8px;
-  width: 35px;
-  height: 2.5px;
-  background: var(--color-text);
-  border-radius: 1px;
-  transform-origin: left center;
-  transform: rotate(-35deg);
-  animation: armSwingR 3s ease-in-out infinite;
-}
-
-@keyframes armSwingL {
-  0%, 100% { transform: rotate(25deg); }
-  50% { transform: rotate(15deg); }
-}
-
-@keyframes armSwingR {
-  0%, 100% { transform: rotate(-35deg); }
-  50% { transform: rotate(-25deg); }
-}
-
-.ts-s-leg-l {
-  position: absolute;
-  bottom: 0;
-  left: 16px;
-  width: 2.5px;
-  height: 32px;
-  background: var(--color-text);
-  border-radius: 1px;
-  transform-origin: top center;
-  transform: rotate(15deg);
-}
-
-.ts-s-leg-r {
-  position: absolute;
-  bottom: 0;
-  right: 16px;
-  width: 2.5px;
-  height: 32px;
-  background: var(--color-text);
-  border-radius: 1px;
-  transform-origin: top center;
-  transform: rotate(-15deg);
-}
-
-.ts-note-hand {
-  position: absolute;
-  bottom: 62px;
-  left: 60px;
-  width: 22px;
-  height: 22px;
-  border-radius: 2px;
-  box-shadow: 0 1px 4px rgba(0,0,0,0.15);
-  z-index: 3;
-  animation: noteFloat 3s ease-in-out infinite;
-}
-
-.ts-note-hand.orange { background: #FFB347; }
-
-@keyframes noteFloat {
-  0%, 100% { transform: translateY(0) rotate(-3deg); }
-  50% { transform: translateY(-6px) rotate(3deg); }
-}
-
-.ts-thought {
-  position: absolute;
-  top: 5px;
-  left: 55px;
-  z-index: 4;
-}
-
-.ts-thought-dot {
-  position: absolute;
-  width: 4px;
-  height: 4px;
-  border-radius: 50%;
-  background: var(--color-nav-link);
-  animation: thoughtPulse 2s ease-in-out infinite;
-}
-
-.ts-thought-dot:nth-child(1) { top: 0; left: 0; animation-delay: 0s; }
-.ts-thought-dot:nth-child(2) { top: -8px; left: 6px; animation-delay: 0.3s; }
-.ts-thought-dot:nth-child(3) { top: -16px; left: 12px; animation-delay: 0.6s; }
-
-.ts-thought-box {
-  position: absolute;
-  top: -32px;
-  left: 10px;
-  width: 24px;
-  height: 24px;
-  border-radius: 50%;
-  border: 2px solid var(--color-nav-link);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 0.85rem;
-  font-weight: 700;
-  color: var(--color-nav-link);
-  animation: thoughtPulse 2s ease-in-out infinite;
-  animation-delay: 0.9s;
-}
-
-@keyframes thoughtPulse {
-  0%, 100% { opacity: 0.3; transform: scale(0.9); }
-  50% { opacity: 1; transform: scale(1.1); }
-}
-
-body.dark .ts-card.yellow { background: #E8C840; }
-body.dark .ts-card.blue { background: #4A9BD9; }
-body.dark .ts-card.pink { background: #D96A7E; }
-body.dark .ts-card.green { background: #4EA85A; }
 
 .hero-title {
   font-size: clamp(1.8rem, 5vw, 3.2rem);
@@ -547,9 +344,11 @@ html {
 
 .projects-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 16px;
   text-align: left;
+  max-width: 900px;
+  margin: 0 auto;
 }
 
 .project-card {
@@ -576,6 +375,10 @@ html {
     0 12px 32px var(--color-card-shadow),
     0 0 40px rgba(48, 188, 237, 0.06),
     inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+.project-card-tall {
+  grid-row: span 2;
 }
 
 .project-card h3 {
@@ -962,6 +765,14 @@ body.dark .ws-screen {
   width: 28px;
   height: 28px;
   display: block;
+}
+
+.skill-img {
+  width: 28px;
+  height: 28px;
+  object-fit: contain;
+  display: block;
+  border-radius: 4px;
 }
 
 .skill-name {
