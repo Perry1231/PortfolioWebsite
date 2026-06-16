@@ -353,6 +353,11 @@ body.dark .robot-eye {
   transition: color 0.4s ease, text-shadow 0.4s ease;
 }
 
+.hero-name {
+  display: inline-block;
+  white-space: nowrap;
+}
+
 .hero-subtitle {
   font-size: clamp(0.95rem, 2vw, 1.2rem);
   color: var(--color-subtitle);
