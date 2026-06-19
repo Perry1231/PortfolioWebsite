@@ -581,7 +581,7 @@ body:not(.dark) .contact-btn {
     0 8px 20px rgba(0, 0, 0, 0.08),
     0 20px 60px rgba(0, 0, 0, 0.06),
     inset 0 1px 0 rgba(255, 255, 255, 0.4);
-  transition: top 0.3s ease, opacity 0.3s ease, box-shadow 0.3s ease, background 0.4s ease, border-color 0.4s ease;
+  transition: transform 0.3s ease, opacity 0.3s ease, box-shadow 0.3s ease, background 0.4s ease, border-color 0.4s ease;
 }
 
 .nav:hover {
@@ -607,13 +607,6 @@ body.dark .nav:hover {
     0 12px 28px rgba(0, 0, 0, 0.35),
     0 28px 80px rgba(0, 0, 0, 0.3),
     inset 0 1px 0 rgba(255, 255, 255, 0.06);
-}
-
-.nav-hidden,
-.nav-hidden:hover {
-  top: -100px;
-  opacity: 0;
-  pointer-events: none;
 }
 
 .nav-link {

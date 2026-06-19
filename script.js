@@ -1,26 +1,21 @@
 (function() {
-  var nav = document.getElementById('main-nav') || document.querySelector('.nav');
+  var nav = document.getElementById('main-nav');
   if (!nav) return;
 
   var lastScroll = window.scrollY || 0;
-  var ticking = false;
-
-  function updateNav() {
-    var currentScroll = window.scrollY || 0;
-    if (currentScroll > 80 && currentScroll > lastScroll) {
-      nav.classList.add('nav-hidden');
-    } else {
-      nav.classList.remove('nav-hidden');
-    }
-    lastScroll = currentScroll;
-    ticking = false;
-  }
 
   window.addEventListener('scroll', function() {
-    if (!ticking) {
-      window.requestAnimationFrame(updateNav);
-      ticking = true;
+    var currentScroll = window.scrollY || 0;
+    if (currentScroll > 80 && currentScroll > lastScroll) {
+      nav.style.transform = 'translate(-50%, -120px)';
+      nav.style.opacity = '0';
+      nav.style.pointerEvents = 'none';
+    } else {
+      nav.style.transform = 'translate(-50%, 0)';
+      nav.style.opacity = '1';
+      nav.style.pointerEvents = '';
     }
+    lastScroll = currentScroll;
   }, { passive: true });
 
   document.querySelectorAll('.nav-link').forEach(function(link) {
