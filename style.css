@@ -581,7 +581,7 @@ body:not(.dark) .contact-btn {
     0 8px 20px rgba(0, 0, 0, 0.08),
     0 20px 60px rgba(0, 0, 0, 0.06),
     inset 0 1px 0 rgba(255, 255, 255, 0.4);
-  transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.4s ease, border-color 0.4s ease;
+  transition: top 0.3s ease, box-shadow 0.3s ease, background 0.4s ease, border-color 0.4s ease;
 }
 
 .nav:hover {
@@ -611,7 +611,7 @@ body.dark .nav:hover {
 
 .nav-hidden,
 .nav-hidden:hover {
-  transform: translateX(-50%) translateY(-100px);
+  top: -100px;
 }
 
 .nav-link {

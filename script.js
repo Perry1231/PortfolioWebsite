@@ -1,21 +1,14 @@
 var lastScroll = 0;
 var nav = document.querySelector('.nav');
-var ticking = false;
 
 window.addEventListener('scroll', function() {
-  if (!ticking) {
-    requestAnimationFrame(function() {
-      var currentScroll = window.scrollY;
-      if (currentScroll > 80 && currentScroll > lastScroll) {
-        nav.classList.add('nav-hidden');
-      } else {
-        nav.classList.remove('nav-hidden');
-      }
-      lastScroll = currentScroll;
-      ticking = false;
-    });
-    ticking = true;
+  var currentScroll = window.scrollY;
+  if (currentScroll > 80 && currentScroll > lastScroll) {
+    nav.classList.add('nav-hidden');
+  } else {
+    nav.classList.remove('nav-hidden');
   }
+  lastScroll = currentScroll;
 });
 
 document.querySelectorAll('.nav-link').forEach(function(link) {
