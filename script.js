@@ -1,3 +1,15 @@
+var lastScroll = 0;
+var nav = document.querySelector('.nav');
+window.addEventListener('scroll', function() {
+  var currentScroll = window.scrollY;
+  if (currentScroll > 80 && currentScroll > lastScroll) {
+    nav.classList.add('nav-hidden');
+  } else if (currentScroll <= 80 || currentScroll < lastScroll) {
+    nav.classList.remove('nav-hidden');
+  }
+  lastScroll = currentScroll;
+});
+
 document.querySelectorAll('.nav-link').forEach(function(link) {
   link.addEventListener('click', function(e) {
     e.preventDefault();

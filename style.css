@@ -487,52 +487,52 @@ html {
 
 .ws-s-arm-l {
   position: absolute;
-  top: 24px;
-  left: -2px;
-  width: 30px;
-  height: 2.5px;
-  background: var(--color-text);
-  border-radius: 1px;
+  top: 22px;
+  left: -14px;
+  width: 32px;
+  height: 7px;
+  background: linear-gradient(180deg, var(--color-subtitle), var(--color-text));
+  border-radius: 4px 10px 10px 4px;
   transform-origin: right center;
-  transform: rotate(15deg);
+  transform: rotate(18deg);
   animation: typingL 0.8s ease-in-out infinite;
+}
+
+.ws-s-arm-l::after {
+  content: '';
+  position: absolute;
+  right: -5px;
+  top: -2px;
+  width: 10px;
+  height: 11px;
+  background: var(--color-subtitle);
+  border-radius: 5px 3px 5px 5px;
+  transform: rotate(-5deg);
 }
 
 .ws-s-arm-r {
   position: absolute;
-  top: 24px;
-  right: -2px;
+  top: 22px;
+  right: -14px;
   width: 55px;
-  height: 2.5px;
-  background: var(--color-text);
-  border-radius: 1px;
+  height: 7px;
+  background: linear-gradient(180deg, var(--color-subtitle), var(--color-text));
+  border-radius: 10px 4px 4px 10px;
   transform-origin: left center;
   transform: rotate(-35deg);
   animation: typingR 0.8s ease-in-out infinite;
 }
 
-.ws-s-leg-l {
+.ws-s-arm-r::after {
+  content: '';
   position: absolute;
-  bottom: -28px;
-  left: 6px;
-  width: 2.5px;
-  height: 28px;
-  background: var(--color-text);
-  border-radius: 1px;
-  transform-origin: top center;
-  transform: rotate(12deg);
-}
-
-.ws-s-leg-r {
-  position: absolute;
-  bottom: -28px;
-  right: 6px;
-  width: 2.5px;
-  height: 28px;
-  background: var(--color-text);
-  border-radius: 1px;
-  transform-origin: top center;
-  transform: rotate(-12deg);
+  left: -5px;
+  top: -2px;
+  width: 10px;
+  height: 11px;
+  background: var(--color-subtitle);
+  border-radius: 3px 5px 5px 5px;
+  transform: rotate(5deg);
 }
 
 @keyframes typingL {
@@ -589,26 +589,27 @@ html {
   box-shadow: 0 0 20px rgba(48, 188, 237, 0.08), inset 0 0 30px rgba(0,0,0,0.3);
 }
 
-.ws-code {
+.ws-code-line {
   height: 4px;
-  background: var(--color-cyan);
+  background: var(--c, var(--color-cyan));
   border-radius: 2px;
   margin-bottom: 6px;
-  opacity: 0.5;
-  animation: codePulse 2s ease-in-out infinite;
+  width: 0;
+  animation: codeType 1s ease-out var(--d, 0s) forwards;
 }
 
-.ws-code:nth-child(2) { animation-delay: 0.3s; opacity: 0.35; background: #4CE09E; }
-.ws-code:nth-child(3) { animation-delay: 0.6s; opacity: 0.45; background: #FFD700; }
-.ws-code:nth-child(4) { animation-delay: 0.9s; opacity: 0.3; background: #FF6B6B; }
-
-@keyframes codePulse {
-  0%, 100% { opacity: 0.3; }
-  50% { opacity: 0.7; }
+.ws-cursor {
+  width: 8px;
+  height: 4px;
+  background: var(--color-cyan);
+  border-radius: 1px;
+  opacity: 0;
+  animation: codeCursor 0.6s step-end infinite;
+  animation-delay: 6s;
 }
 
-@keyframes codeCursor {
-  50% { border-color: transparent; }
+@keyframes codeType {
+  to { width: var(--w); }
 }
 
 .ws-keyboard {
@@ -709,7 +710,7 @@ body.dark .ws-screen {
 .contact-footer {
   background: #0f0f12;
   color: #e8e8ed;
-  padding: 80px 48px 40px;
+  padding: 100px 48px 60px;
   margin-top: 80px;
   transition: background 0.4s ease, color 0.4s ease;
 }
@@ -722,7 +723,7 @@ body:not(.dark) .contact-footer {
   width: 100%;
   height: 2px;
   background: #2a2a35;
-  margin-bottom: 60px;
+  margin-bottom: 80px;
 }
 
 .contact-footer-inner {
@@ -741,8 +742,11 @@ body:not(.dark) .contact-footer {
 .contact-desc {
   font-size: 1.05rem;
   color: #b0b0c0;
-  margin-bottom: 40px;
-  line-height: 1.5;
+  margin-bottom: 16px;
+  line-height: 1.6;
+  max-width: 560px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 #skills.page-section {
@@ -901,6 +905,27 @@ body:not(.dark) .contact-btn {
     0 12px 28px rgba(0, 0, 0, 0.1),
     0 28px 80px rgba(0, 0, 0, 0.08),
     inset 0 1px 0 rgba(255, 255, 255, 0.4);
+}
+
+body.dark .nav {
+  box-shadow:
+    0 2px 4px rgba(0, 0, 0, 0.2),
+    0 8px 20px rgba(0, 0, 0, 0.3),
+    0 20px 60px rgba(0, 0, 0, 0.25),
+    inset 0 1px 0 rgba(255, 255, 255, 0.06);
+}
+
+body.dark .nav:hover {
+  box-shadow:
+    0 4px 8px rgba(0, 0, 0, 0.25),
+    0 12px 28px rgba(0, 0, 0, 0.35),
+    0 28px 80px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.06);
+}
+
+.nav-hidden,
+.nav-hidden:hover {
+  transform: translateX(-50%) translateY(-100px);
 }
 
 .nav-link {
