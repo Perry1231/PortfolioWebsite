@@ -1,22 +1,49 @@
 (function() {
+  if (localStorage.getItem('th') === 'dark') { document.body.classList.add('dark'); }
+
+  var themeToggle = document.getElementById('theme-toggle');
+  if (themeToggle) {
+    themeToggle.addEventListener('click', function() {
+      document.body.classList.toggle('dark');
+      localStorage.setItem('th', document.body.classList.contains('dark') ? 'dark' : '');
+    });
+  }
+
   var nav = document.getElementById('main-nav');
-  if (!nav) return;
+  if (nav) {
+    var lastScroll = window.scrollY || 0;
 
-  var lastScroll = window.scrollY || 0;
+    window.addEventListener('scroll', function() {
+      var currentScroll = window.scrollY || 0;
+      if (currentScroll > 80 && currentScroll > lastScroll) {
+        nav.style.transform = 'translate(-50%, -120px)';
+        nav.style.opacity = '0';
+        nav.style.pointerEvents = 'none';
+      } else {
+        nav.style.transform = 'translate(-50%, 0)';
+        nav.style.opacity = '1';
+        nav.style.pointerEvents = '';
+      }
+      lastScroll = currentScroll;
+    }, { passive: true });
+  }
 
-  window.addEventListener('scroll', function() {
-    var currentScroll = window.scrollY || 0;
-    if (currentScroll > 80 && currentScroll > lastScroll) {
-      nav.style.transform = 'translate(-50%, -120px)';
-      nav.style.opacity = '0';
-      nav.style.pointerEvents = 'none';
-    } else {
-      nav.style.transform = 'translate(-50%, 0)';
-      nav.style.opacity = '1';
-      nav.style.pointerEvents = '';
+  var backToTop = document.getElementById('back-to-top');
+  if (backToTop) {
+    function updateBackToTop() {
+      if (window.scrollY > 200) {
+        backToTop.classList.add('visible');
+      } else {
+        backToTop.classList.remove('visible');
+      }
     }
-    lastScroll = currentScroll;
-  }, { passive: true });
+    window.addEventListener('scroll', updateBackToTop, { passive: true });
+    updateBackToTop();
+
+    backToTop.addEventListener('click', function() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  }
 
   document.querySelectorAll('.nav-link').forEach(function(link) {
     link.addEventListener('click', function(e) {
