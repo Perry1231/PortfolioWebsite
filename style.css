@@ -219,6 +219,16 @@ body {
 
 .hl:hover {
   color: var(--color-accent-alt);
+  animation: letterBounce 0.55s ease;
+}
+
+@keyframes letterBounce {
+  0%, 100% { transform: translateY(0); }
+  25% { transform: translateY(-7px); }
+  50% { transform: translateY(0); }
+  70% { transform: translateY(-3px); }
+  85% { transform: translateY(0); }
+  93% { transform: translateY(-1.5px); }
 }
 
 html {

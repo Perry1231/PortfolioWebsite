@@ -31,8 +31,8 @@
       function step(now) {
         if (!startTime) startTime = now;
         var t = Math.min((now - startTime) / dur, 1);
-        var ease = t < 0.5 ? 2 * t * t : -1 + (4 - 2 * t) * t;
-        window.scrollTo(0, start + dist * ease);
+        var ease = t < .5 ? 2*t*t : -1+(4-2*t)*t;
+        window.scrollTo(0, start + dist*ease);
         if (t < 1) requestAnimationFrame(step);
       }
       requestAnimationFrame(step);
