@@ -8,7 +8,6 @@ The website serves as an online portfolio where visitors can learn more about th
 ## Features
 
 * Modern and responsive design
-* Mobile-friendly interface
 * Personal introduction section
 * Skills and technologies showcase
 * Project portfolio section
