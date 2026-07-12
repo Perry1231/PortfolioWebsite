@@ -65,4 +65,19 @@
       requestAnimationFrame(step);
     });
   });
+
+  var footer = document.querySelector('.contact-footer');
+  if (footer) {
+    var footerObserver = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          footer.style.opacity = '1';
+          footer.style.transform = 'translateY(0)';
+          footer.style.visibility = 'visible';
+        }
+      });
+    }, { threshold: 0.1 });
+    
+    footerObserver.observe(footer);
+  }
 })();
