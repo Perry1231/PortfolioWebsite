@@ -45,6 +45,22 @@
     });
   }
 
+  var footer = document.querySelector('.contact-footer');
+  if (footer) {
+    footer.style.position = 'sticky';
+    footer.style.top = '20px';
+    footer.style.transform = 'translateY(-110%)';
+    footer.style.transition = 'transform 0.4s ease';
+    
+    window.addEventListener('scroll', function() {
+      if (window.scrollY > 100) {
+        footer.style.transform = 'translateY(0)';
+      } else {
+        footer.style.transform = 'translateY(-110%)';
+      }
+    }, { passive: true });
+  }
+
   document.querySelectorAll('.nav-link').forEach(function(link) {
     link.addEventListener('click', function(e) {
       e.preventDefault();
