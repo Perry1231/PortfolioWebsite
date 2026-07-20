@@ -1,5 +1,7 @@
 (function() {
-  if (localStorage.getItem('th') === 'dark') { document.body.classList.add('dark'); }
+  if (localStorage.getItem('th') === 'dark') {
+    document.body.classList.add('dark');
+  }
 
   var themeToggle = document.getElementById('theme-toggle');
   if (themeToggle) {
@@ -9,24 +11,17 @@
     });
   }
 
-var nav = document.getElementById('main-nav');
-if (nav) {
-var lastScroll = window.scrollY || 0;
+  var nav = document.getElementById('main-nav');
+  if (nav) {
+    var lastScroll = window.scrollY || 0;
 
-window.addEventListener('scroll', function() {
-var currentScroll = window.scrollY || 0;
-if (currentScroll > 120 && currentScroll > lastScroll) {
-nav.style.transform = 'translate(-50%, -120px)';
-nav.style.opacity = '0';
-nav.style.pointerEvents = 'none';
-} else {
-nav.style.transform = 'translate(-50%, 0)';
-nav.style.opacity = '1';
-nav.style.pointerEvents = '';
-}
-lastScroll = currentScroll;
-}, { passive: true });
-}
+    window.addEventListener('scroll', function() {
+      var currentScroll = window.scrollY || 0;
+      if (currentScroll > 100 && currentScroll > lastScroll) {
+        nav.classList.add('nav-hidden');
+      } else {
+        nav.classList.remove('nav-hidden');
+      }
       lastScroll = currentScroll;
     }, { passive: true });
   }
@@ -48,6 +43,4 @@ lastScroll = currentScroll;
     });
   }
 
-  });
-  }
 })();

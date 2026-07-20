@@ -686,7 +686,14 @@ body:not(.dark) .contact-btn {
 }
 
 .nav:hover {
-  transform: translateX(-50%) translateY(-2px);
+transform: translateX(-50%) translateY(-2px);
+}
+
+.nav-hidden {
+transform: translateX(-50%) translateY(-120px);
+opacity: 0;
+pointer-events: none;
+}
   box-shadow:
     0 4px 8px rgba(0, 0, 0, 0.04),
     0 12px 28px rgba(0, 0, 0, 0.1),
