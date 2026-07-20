@@ -9,21 +9,24 @@
     });
   }
 
-  var nav = document.getElementById('main-nav');
-  if (nav) {
-    var lastScroll = window.scrollY || 0;
+var nav = document.getElementById('main-nav');
+if (nav) {
+var lastScroll = window.scrollY || 0;
 
-    window.addEventListener('scroll', function() {
-      var currentScroll = window.scrollY || 0;
-      if (currentScroll > 80 && currentScroll > lastScroll) {
-        nav.style.transform = 'translate(-50%, -120px)';
-        nav.style.opacity = '0';
-        nav.style.pointerEvents = 'none';
-      } else {
-        nav.style.transform = 'translate(-50%, 0)';
-        nav.style.opacity = '1';
-        nav.style.pointerEvents = '';
-      }
+window.addEventListener('scroll', function() {
+var currentScroll = window.scrollY || 0;
+if (currentScroll > 120 && currentScroll > lastScroll) {
+nav.style.transform = 'translate(-50%, -120px)';
+nav.style.opacity = '0';
+nav.style.pointerEvents = 'none';
+} else {
+nav.style.transform = 'translate(-50%, 0)';
+nav.style.opacity = '1';
+nav.style.pointerEvents = '';
+}
+lastScroll = currentScroll;
+}, { passive: true });
+}
       lastScroll = currentScroll;
     }, { passive: true });
   }
