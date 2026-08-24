@@ -322,6 +322,42 @@ html {
 
 .project-card-tall {
   grid-row: span 2;
+  border-color: rgba(252, 81, 48, 0.35);
+  box-shadow:
+    0 1px 3px var(--color-card-shadow),
+    0 4px 12px var(--color-card-shadow),
+    0 0 0 1px rgba(252, 81, 48, 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 0.15);
+}
+
+.project-card-tall:hover {
+  border-color: rgba(252, 81, 48, 0.55);
+  box-shadow:
+    0 4px 8px var(--color-card-shadow),
+    0 12px 32px var(--color-card-shadow),
+    0 0 40px rgba(252, 81, 48, 0.08),
+    0 0 0 1px rgba(252, 81, 48, 0.12),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+.project-card-tall::before {
+  content: "Featured";
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: #FC5130;
+  background: rgba(252, 81, 48, 0.08);
+  padding: 3px 10px;
+  border-radius: 100px;
+  border: 1px solid rgba(252, 81, 48, 0.2);
+  letter-spacing: 0.02em;
+  pointer-events: none;
+}
+
+.project-card {
+  position: relative;
 }
 
 .project-card h3 {
@@ -331,6 +367,15 @@ html {
   color: var(--color-text);
   text-shadow: 0 1px 3px var(--color-text-3d);
   transition: color 0.4s ease, text-shadow 0.4s ease;
+}
+
+.project-private {
+  font-size: 0.8rem;
+  color: var(--color-subtitle);
+  font-style: italic;
+  line-height: 1.4;
+  margin-bottom: 10px;
+  opacity: 0.8;
 }
 
 .project-card p {
