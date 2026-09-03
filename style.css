@@ -287,7 +287,7 @@ html {
 
 .projects-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 16px;
   text-align: left;
   max-width: 900px;
@@ -321,7 +321,7 @@ html {
 }
 
 .project-card-tall {
-  grid-column: 1;
+  grid-column: span 1;
   grid-row: span 2;
   border-color: rgba(252, 81, 48, 0.35);
   box-shadow:
@@ -341,11 +341,23 @@ html {
     inset 0 1px 0 rgba(255, 255, 255, 0.2);
 }
 
-.project-card-right {
+.project-card-second-column {
+  grid-column: 2;
+  grid-row: span 1;
+}
+
+.project-card:nth-child(n+4) {
   grid-column: 2;
 }
 
-.project-card::before {
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  text-align: left;
+  max-width: 900px;
+  margin: 0 auto;
+}
   content: "Featured";
   position: absolute;
   top: 12px;
@@ -363,6 +375,22 @@ html {
 
 .project-card {
   position: relative;
+}
+
+.project-card::before {
+  content: "Featured";
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: #FC5130;
+  background: rgba(252, 81, 48, 0.08);
+  padding: 3px 10px;
+  border-radius: 100px;
+  border: 1px solid rgba(252, 81, 48, 0.2);
+  letter-spacing: 0.02em;
+  pointer-events: none;
 }
 
 .project-card h3 {
